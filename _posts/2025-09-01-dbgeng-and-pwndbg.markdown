@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Pwndbg <-> WinDbg in the nutshell"
-date:   2025-08-23 01:03:35 +0700
+date:   2025-09-05 04:03:16 +0700
 categories: debugging
 ---
 
