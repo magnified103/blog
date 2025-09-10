@@ -39,7 +39,7 @@ Since these don't use an object-oriented approach, context management was a huge
 
 The hardest part of working with the Pwndbg API was the symbol and type system. In `DbgEng`, types are managed by `TypeId`s, which can be looked up with `IDebugSymbols::GetTypeId`. However, upon inspecting this function in IDA, I discovered it has a lot of limitations.
 
-![](https://gist.github.com/user-attachments/assets/35c50254-c7b1-4e06-8376-83bfede0b7fb)
+![](/assets/img/0b5c365b68ddd25212887f8eddfa2e29c4a3afdb95338fc5c026c660c16952d6.png)
 *The function uses `SymSearchW`, `SymEnumSymbolsW`, and `SymEnumTypesW` to enumerate symbols in the target's PDB file and then compares the found symbols literally with the search string.*
 
 This means that this function (which is called by `GetTypeId`) can only look up symbols directly from the PDB, not their derived types. During my tests, it managed to find the `TypeId` for `void`, but it couldn't do the same for `void*`. Moreover, it couldn't even find the `TypeId` for basic primitives like `unsigned` or `unsigned long long`.
@@ -48,7 +48,7 @@ After reverse engineering DbgEng, I found an obscure [Request](https://learn.mic
 
 This IOCTL seemed very promising, but after testing it for a week, I found another huge limitation: the binding of data and type. The `_DEBUG_TYPED_DATA` struct is provided to represent typed data, and for given a TypeId, you can create typed data using `EXT_TDOP_SET_FROM_TYPE_ID_AND_U64`. And... it just didn't work. Upon reverse engineering, I found that this IOCTL requires a valid base address for the underlying data, which makes it impossible to create values on the fly.
 
-![](https://gist.github.com/user-attachments/assets/ec0570a6-a5f1-4ac1-b90d-7f89d6cd13b8)
+![](/assets/img/ba747385baea66f465ad4717fb2727f890bffcdb3cb4a9033e2e67cc65423f05.png)
 *Pseudocode for `dbgeng!TypedData::SetToTypedOffset`. After parsing the given `typeId`, the function attempts to read the data from memory with `TypedData::ReadData`.*
 
 ## Interaction between C/C++ and Python
@@ -119,7 +119,7 @@ https://github.com/pwndbg/pwndbg/pull/3159
 ## PoC
 Currently, only the `context` command is tested.
 
-![](https://gist.github.com/user-attachments/assets/c1b0da9d-cb5d-4091-8c11-06757d8b40ec)
+![](/assets/img/b6a5f44ec5cbad465149e507ffccc0ba9745e037142a4be4f863ae34f47206d6.png)
 
 # Remarks
 Even with the new debugger data model approach, a major problem is still there: there are literally no examples for its API. This meant every function had to be tested using a trial-and-error approach, and if something didn’t work, reverse engineering and debugging was the only way to know why.
