@@ -24,8 +24,6 @@ description: >- # this means to ignore newlines until "baseurl:"
   Dung Nguyen's blog about infra, security, and other tech involving the EKluster system.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: magnified103
-github_username:  magnified103
 
 # Build settings
 remote_theme: jekyll/minima@0b7ca6bbdb782a646f8e7b78b1a29fd5032ad4d3
@@ -35,6 +33,12 @@ plugins:
 minima:
   skin: dark
   show_excerpts: true
+  social_links:
+    - title: My GitHub Profile
+      icon: github
+      url: "https://github.com/magnified103"
+
+google_analytics: G-D5T29DLT9M
 
 # Exclude from processing.
 # The following items will not be processed, by default.
