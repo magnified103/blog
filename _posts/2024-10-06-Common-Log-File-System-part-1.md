@@ -13,7 +13,7 @@ CLFS uses the “Base Log File” (BLF) format to maintain necessary metadata fo
 
 A BLF file consists of six metadata blocks: Control Block, Base Block, Truncate Block, and their corresponding shadow blocks. Shadow blocks contain copies of the metadata, which can be used for data consistency. Every block starts with a 70-byte log block header, called `CLFS_LOG_BLOCK_HEADER`, followed by their records.
 
-![](/assets/img/a0ee2034f286e448787e5609b0f79ac0f0ac05fab308d9ce0f49489b776aa508.svg)
+![]({% link /assets/img/a0ee2034f286e448787e5609b0f79ac0f0ac05fab308d9ce0f49489b776aa508.svg %})
 *Base Log File format*
 
 The blocks are stored in sectors, each of which is 512 bytes in size. At the end of every sector will be a signature, which is composed of two bytes: the sector block type and the update sequence number (USN). The signatures are used for data consistency.
@@ -77,7 +77,7 @@ Clfsw32 (the user-space library for CLFS) provides 43 functions, of which only 3
 
 The following diagram describes the trace from user-mode `CreateLogFile` API to kernel-mode CLFS driver. The call stack was extracted using WinDBG.
 
-![](/assets/img/e84e3f8437055cf0e6839312169f771c2a5c402b8833d34e4977d3ffe982ec4e.svg)
+![]({% link /assets/img/e84e3f8437055cf0e6839312169f771c2a5c402b8833d34e4977d3ffe982ec4e.svg %})
 *Call stack of `CreateLogFile`*
 
 # Exploit targets
@@ -85,7 +85,7 @@ The following diagram describes the trace from user-mode `CreateLogFile` API to 
 ## RemoveContainer's double vtable calls
 There is an interesting call stack during the call to `DeleteLogByHandle` and `CloseHandle`:
 
-![](/assets/img/98d33a6453bc15b3fe65f0e13153fd7f28b6b2763f101d1bb0136bab956a373e.svg)
+![]({% link /assets/img/98d33a6453bc15b3fe65f0e13153fd7f28b6b2763f101d1bb0136bab956a373e.svg %})
 
 ```c
 __int64 __fastcall CClfsBaseFilePersisted::RemoveContainer(CClfsBaseFilePersisted *this, unsigned int a2)
@@ -308,4 +308,4 @@ __int64 __fastcall CClfsBaseFilePersisted::WriteMetadataBlock(CClfsBaseFilePersi
 The problem comes down to where we should point `pbImage`. Fortunately, since blocks are allocated in Paged Pool whose address can be leaked via `NtQuerySystemInformation`, we can forge the control block and the pbImage field to corrupt `rgContainers[0]`.
 Using `CreatePipe` is a common method to allocate memory on the kernel heap [[10]](https://www.sstic.org/media/SSTIC2020/SSTIC-actes/pool_overflow_exploitation_since_windows_10_19h1/SSTIC2020-Article-pool_overflow_exploitation_since_windows_10_19h1-bayet_fariello.pdf). In fact, to reliably control the overflowed data, we must spray the kernel heap and create holes for the victim chunk using `CloseHandle`.
 
-![](/assets/img/f43b3a957892b267a0a4c45807d9eead4d2919a22edcf9a2d5403cbcb4dacbcd.svg)
+![]({% link /assets/img/f43b3a957892b267a0a4c45807d9eead4d2919a22edcf9a2d5403cbcb4dacbcd.svg %})
