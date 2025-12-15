@@ -1,0 +1,34 @@
+- id: gmaths
+  title: GMATHS
+  description: >
+    A learning management system (LMS) specially designed for STEM education.
+  url: https://github.com/magnified103/gmaths-education-website
+  image: /assets/img/projects/gmaths.jpg
+
+- id: zap
+  title: zap
+  description: >
+    A 3D first-person shooter game written in modern C++ with OpenGL and SDL2.
+  url: https://github.com/magnified103/zap
+  image: /assets/img/projects/zap.png
+
+- id: vccompiler
+  title: VCCompiler
+  description: >
+    A general-purpose DFA-based lexer and LL(1) parser.
+  url: https://github.com/INT3402E-20/VCCompiler
+  image: /assets/img/projects/vccompiler.png
+
+- id: bio_autorun
+  title: bio_autorun
+  description: >
+    A specialized utility designed to streamline the execution of IQ-TREE related benchmarks.
+  url: https://github.com/magnified103/bio-autorun
+  image: /assets/img/projects/bio-autorun.png
+
+- id: bomberman
+  title: bomberman
+  description: >
+    The Bomberman game developed using Java and FXGL, using the Entity-Component-System (ECS) architecture.
+  url: https://github.com/magnified103/bomberman-oop
+  image: /assets/img/projects/bomberman.png

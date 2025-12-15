@@ -1,0 +1,112 @@
+---
+---
+
+.project {
+    width: 300px;
+    display: block;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin: 5px;
+    padding: 8px;
+    color: black;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background:white
+}
+
+.project:hover {
+    box-shadow:0 0 12px rgba(66, 139, 202, 0.8)
+}
+
+.project > a {
+    text-decoration:none !important
+}
+
+.project > a:hover, .project > a:active {
+    box-shadow:0 0 6px rgba(42, 100, 150, 0.5)
+}
+
+.project .project-preview {
+    height: 220px;
+    overflow: hidden;
+    display: flex;
+    flex-flow:column
+}
+
+.project .project-preview.project-preview-short {
+    justify-content:center
+}
+
+.project .project-preview img {
+    display: block;
+    border: none;
+    margin: 0;
+    padding: 0;
+    transition:0.5s
+}
+
+.project .project-preview img:hover {
+    transform:scale(1.2)
+}
+
+.project .project-title {
+    display: block;
+    font-weight: bold;
+    margin-top: 2px;
+    font-size:1.2em
+}
+
+.project > a:hover .project-title, .project > a:active .project-title {
+    color:#2a6496
+}
+
+.project .project-description {
+    margin: 0;
+    color: black;
+    display: block;
+    padding-left: 10px;
+    border-left:5px #ccc solid
+}
+
+.project .project-description.pd-nested-link {
+    position:relative
+}
+
+.project .project-description.pd-nested-link .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right:0
+}
+
+.project .project-description.pd-nested-link .inner {
+    position: relative;
+    pointer-events: none;
+    z-index:1
+}
+
+.project .project-description.pd-nested-link .inner a {
+    pointer-events:all
+}
+
+.project .project-extra {
+    display:none
+}
+
+.project-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:space-between
+}
+
+.project-showcase .showcase-preview img {
+    margin: 0 auto;
+    display:block
+}
+
+.project-showcase .showcase-title {
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 10px
+}
