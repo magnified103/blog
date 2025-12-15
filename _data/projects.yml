@@ -26,6 +26,13 @@
   url: https://github.com/magnified103/bio-autorun
   image: /assets/img/projects/bio-autorun.png
 
+- id: horizon_sim
+  title: horizon_sim
+  description: >
+    A Python-based simulation framework for modeling and visualizing the dynamics of multiple interacting bodies under Newtonian gravity.
+  url: https://github.com/magnified103/horizon_sim
+  image: /assets/img/projects/horizon-sim.png
+
 - id: blog
   title: Blog
   description: >
