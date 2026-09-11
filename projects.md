@@ -8,21 +8,24 @@ I have worked on a number of projects, and here is an incomplete list.
 
 ### VNOJ
 
-[VNOJ](https://oj.vnoi.info) is a modern, open-source online judge, forked from DMOJ. As a senior contributor, my work has included:
+[VNOJ](https://oj.vnoi.info) is a modern, open-source online judge, serving 2M monthly visitors with 2M daily requests. As a senior maintainer, my work has included:
 
-- Contributing to 21+ pull requests for both backend and frontend components.
-- Identifying 3 critical security issues within the backend and the judge system.
-
-I also maintain a private fork named [HNOJ](https://hnoj.edu.vn) serving high school students in Hanoi. This version incorporates several additional features and fixes such as:
-
-- Implementing the use of S3 presigned URLs to handle large file submissions.
-- Containerizing all services and using Terraform to provision and automatically deploy them to AWS ECS.
+- Contributed to 60+ features and bug fixes across services and components.
+- Led major redesigns, including:
+  + Service containerization
+  + Full-stack observability platform
+  + Usage quotas
+  + Data pruning
+  + Authentication backends for special scenarios
+  + Flexible storage backend support
+- Reduced p99 latency for bottleneck endpoints by 50%, assisted by a full-stack observability platform.
+- Identified 3 critical security issues within the backend and the judge system.
 
 ### Open Source Work
 
 I contributed to the development of a Windows port for pwndbg, a popular GDB plug-in for exploit development and reverse engineering. A detailed account of this work can be found in my blog post [here]({% link _posts/2025-09-01-dbgeng-and-pwndbg.md %}).
 
-Additionally, I have contributed bug fixes to a variety of other open-source projects, including:
+Additionally, I have contributed features and bug fixes to a variety of other open-source projects, including:
 
 - Python (CPython).
 - Shadow (a discrete-event network simulator).
