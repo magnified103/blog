@@ -8,7 +8,7 @@ I have worked on a number of projects, and here is an incomplete list.
 
 ### VNOJ
 
-[VNOJ](https://oj.vnoi.info) is a modern, open-source online judge, serving 2M monthly visitors with 2M daily requests. As a senior maintainer, my work has included:
+[VNOJ](https://github.com/VNOI-Admin/OJ) is a modern, open-source online judge, serving 100'000+ MAU with 1.5M daily requests. As a senior maintainer, my work has included:
 
 - Contributed to 60+ features and bug fixes across services and components.
 - Led major redesigns, including:
